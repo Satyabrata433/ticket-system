@@ -25,7 +25,7 @@ return new class extends Migration
         });
 
         // ✅ Add CHECK constraint after table creation
-        DB::statement("ALTER TABLE partners ADD CONSTRAINT chk_partner_status CHECK (status IN ('Active', 'Inactive'))");
+        // DB::statement("ALTER TABLE partners ADD CONSTRAINT chk_partner_status CHECK (status IN ('Active', 'Inactive'))");
     }
 
 
