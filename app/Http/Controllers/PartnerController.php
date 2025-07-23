@@ -21,7 +21,7 @@ class PartnerController extends Controller
             'address' => 'required|string',
             'city' => 'required|string|max:50',
             'state' => 'required|string|max:50',
-            'status' => 'required|in:Active,Inactive',
+            'status' => 'required|in:Active,Inactive,Pending',
             'contact_person_name' => 'required|string|max:100',
             'contact_person_mobile' => 'required|string|max:15',
         ]);
@@ -33,7 +33,11 @@ class PartnerController extends Controller
 
     public function show($id)
     {
-        $partner = Partner::findOrFail($id);
+        $partner = Partner::find($id);
+        if (!$partner) {
+            return response()->json(['message' => 'Partner not found'], 404);
+        }
+
         return response()->json($partner);
     }
 
