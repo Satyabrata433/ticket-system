@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\PartnerController;
 use App\Http\Controllers\Api\AuthController;
+use App\Http\Controllers\EmployeeController;
+
 
 Route::get('/user', function (Request $request) {
     return $request->user();
@@ -26,5 +28,8 @@ Route::middleware('auth:sanctum')->group(function () {
 
 Route::middleware('auth:sanctum')->group(function () {
     Route::apiResource('/partners', PartnerController::class);
+});
+Route::middleware('auth:sanctum')->group(function () {
+    Route::apiResource('/employees', EmployeeController::class);
 });
 
