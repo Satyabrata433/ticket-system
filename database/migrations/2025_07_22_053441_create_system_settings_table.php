@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('id_prefix', 10);
             $table->string('ticket_status', 20);
             $table->boolean('allow_customer');
+            $table->boolean('internal_notes');
             $table->integer('close_days')->default(0);
             $table->integer('attachment_size');
             $table->string('attachment_types', 100);

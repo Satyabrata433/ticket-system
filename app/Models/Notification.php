@@ -6,5 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Notification extends Model
 {
-    //
+    protected $fillable = [
+        'recipient',
+        'priority',
+        'subject',
+        'message',
+        'attachment',
+        'status',
+        'sent_at',
+    ];
 }

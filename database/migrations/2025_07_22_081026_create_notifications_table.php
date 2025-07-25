@@ -20,6 +20,7 @@ return new class extends Migration
         $table->string('attachment', 100)->nullable();
         $table->string('status', 20);
         $table->dateTime('sent_at');
+        $table->timestamps(); 
 
         
     });
