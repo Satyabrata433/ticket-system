@@ -10,6 +10,7 @@ use App\Http\Controllers\CompanySettingController;
 use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\LoginSettingController;
 use App\Http\Controllers\SystemSettingController;
+use App\Http\Controllers\TicketController;
 
 
 Route::get('/user', function (Request $request) {
@@ -61,4 +62,9 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/system-settings', [SystemSettingController::class, 'index']);
     Route::post('/system-settings', [SystemSettingController::class, 'update']);
 });
+
+Route::get('/tickets', [TicketController::class, 'index']);
+Route::get('/tickets/{id}', [TicketController::class, 'show']);
+Route::post('/tickets/{id}/attachments', [TicketController::class, 'uploadAttachment']);
+Route::post('/tickets/{id}/notes', [TicketController::class, 'addNote']);
 
